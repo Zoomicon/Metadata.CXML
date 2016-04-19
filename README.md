@@ -1,2 +1,2 @@
 # Metadata.CXML
-Metadata - Collection XML (CXML)
+Library for manipulating Metadata in Collection XML (CXML) format (as defined for PivotViewer control)

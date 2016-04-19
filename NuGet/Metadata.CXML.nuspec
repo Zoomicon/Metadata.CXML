@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+
+  <metadata>
+    <id>Metadata.CXML</id>
+    <version>1.0.0</version>
+    <title>Metadata.CXML</title>
+    <authors>birbilis</authors>
+    <owners>birbilis</owners>
+    <licenseUrl>https://github.com/Zoomicon/Metadata.CXML/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/Zoomicon/Metadata.CXML</projectUrl>
+    <iconUrl>http://zoomicon.com/logo.jpg</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <developmentDependency>true</developmentDependency>
+    <description>Library for manipulating Metadata in Collection XML (CXML) format (as defined for PivotViewer control)</description>
+    <releaseNotes />
+    <copyright>Copyright 2013-2016</copyright>
+    <tags>Metadata CXML PivotViewer</tags>
+
+    <dependencies>
+      <group targetFramework="dotnet">
+      </group>
+    </dependencies>
+
+  </metadata>
+
+  <files>
+    <!-- dotnet -->
+    <file src="..\bin\Release\Metadata.CXML.dll" target="lib\dotnet\Metadata.CXML.dll" />
+  </files>
+
+</package>
