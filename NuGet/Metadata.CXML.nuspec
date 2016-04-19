@@ -27,7 +27,7 @@
 
   <files>
     <!-- dotnet -->
-    <file src="..\bin\Release\CXMLMetadata.dll" target="lib\dotnet\CXMLMetadata.dll" />
+    <file src="..\bin\Release\Metadata.CXML.dll" target="lib\dotnet\Metadata.CXML.dll" />
   </files>
 
 </package>

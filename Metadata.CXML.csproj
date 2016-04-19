@@ -8,10 +8,10 @@
     <ProjectGuid>{5A35D600-930D-49A9-BE66-806C3A1CAF8A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CXMLMetadata</RootNamespace>
-    <AssemblyName>CXMLMetadata</AssemblyName>
+    <RootNamespace>Metadata.CXML</RootNamespace>
+    <AssemblyName>Metadata.CXML</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile147</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile336</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <IsWebBootstrapper>false</IsWebBootstrapper>

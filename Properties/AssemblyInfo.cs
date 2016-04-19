@@ -4,12 +4,12 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CXMLMetadata")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Metadata.CXML")]
+[assembly: AssemblyDescription("Library for manipulating Metadata in Collection XML (CXML) format (as defined for PivotViewer control)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CXMLMetadata")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("Zoomicon")]
+[assembly: AssemblyProduct("Metadata.CXML")]
+[assembly: AssemblyCopyright("Copyright © 2013-2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
