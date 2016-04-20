@@ -66,9 +66,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CXML.cs" />
-    <Compile Include="CXMLMetadata.cs" />
-    <Compile Include="ICXMLMetadata.cs" />
+    <Compile Include="Metadata\CXML.cs" />
+    <Compile Include="Metadata\CXMLMetadata.cs" />
+    <Compile Include="Metadata\ICXMLMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
