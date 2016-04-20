@@ -17,17 +17,11 @@
     <releaseNotes />
     <copyright>Copyright 2013-2016</copyright>
     <tags>Metadata CXML PivotViewer</tags>
-
-    <dependencies>
-      <group targetFramework="dotnet">
-      </group>
-    </dependencies>
-
   </metadata>
 
   <files>
-    <!-- dotnet -->
-    <file src="..\bin\Release\Metadata.CXML.dll" target="lib\dotnet\Metadata.CXML.dll" />
+    <!-- portable-net403+sl5+win8+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10 (see https://msdn.microsoft.com/en-us/magazine/mt590972.aspx) -->
+    <file src="..\bin\Release\Metadata.CXML.dll" target="lib\portable-net403+sl5+win8+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Metadata.CXML.dll" />
   </files>
 
 </package>
