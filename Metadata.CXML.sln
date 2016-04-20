@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metadata.CXML", "Metadata.CXML.csproj", "{5A35D600-930D-49A9-BE66-806C3A1CAF8A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagrams", "Diagrams", "{B741BA93-C69F-48A0-8F38-A11EC286DEBD}"
+	ProjectSection(SolutionItems) = preProject
+		Diagrams\Metadata.CXML.png = Diagrams\Metadata.CXML.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{BA15573C-F326-4F69-8474-C70450C203DF}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet\Metadata.CXML.nuspec = NuGet\Metadata.CXML.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
