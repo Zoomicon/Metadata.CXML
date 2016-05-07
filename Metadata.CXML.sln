@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metadata.CXML", "Metadata.C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagrams", "Diagrams", "{B741BA93-C69F-48A0-8F38-A11EC286DEBD}"
 	ProjectSection(SolutionItems) = preProject
-		Diagrams\Metadata.CXML.png = Diagrams\Metadata.CXML.png
+		Metadata.CXML.cd = Metadata.CXML.cd
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{BA15573C-F326-4F69-8474-C70450C203DF}"
