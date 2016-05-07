@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Metadata.CXML.CXML">
-    <Position X="4.5" Y="0.5" Width="3.5" />
+    <Position X="8" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AABARABEAADAABBEAAAQTAhAgAECQCEoBEiJEIAEECA=</HashCode>
-      <FileName>CXML.cs</FileName>
+      <FileName>Metadata\CXML.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Metadata.CXML.CXMLMetadata" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="4" Width="3.5" />
+    <Position X="4.25" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAACgIQAABAgAEiAABAAAABAAAAAABAACAAABABAAAA=</HashCode>
-      <FileName>CXMLMetadata.cs</FileName>
+      <FileName>Metadata\CXMLMetadata.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -19,7 +19,14 @@
     <Position X="0.5" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAACgIAAABAgAEiAABAAAAAAAAAAABAACAAAAABAAAA=</HashCode>
-      <FileName>ICXMLMetadata.cs</FileName>
+      <FileName>Metadata\ICXMLMetadata.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Metadata.CXML.ICXMLMetadataStorage">
+    <Position X="0.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Metadata\ICXMLMetadataStorage.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Tahoma" Size="8.25" />

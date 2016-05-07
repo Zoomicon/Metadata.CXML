@@ -1,6 +1,6 @@
-﻿//Project: ClipFlair (http://ClipFlair.codeplex.com)
+﻿//Project: Metadata.CXML (https://github.com/zoomicon/Metadata.CXML)
 //Filename: CXML.cs
-//Version: 20131101
+//Version: 20160507
 
 using System;
 using System.Collections.Generic;
