@@ -1,6 +1,6 @@
 ﻿//Project: Metadata.CXML (https://github.com/zoomicon/Metadata.CXML)
 //Filename: CXMLMetadata.cs
-//Version: 20160507
+//Version: 20160511
 
 using System;
 using System.Collections.Generic;
@@ -56,10 +56,12 @@ namespace Metadata.CXML
 
     public virtual ICXMLMetadata Load(XElement item)
     {
-      Id = item.Attribute(CXML.ATTRIB_ID).Value;
-      Title = item.Attribute(CXML.ATTRIB_NAME).Value;
-      Image = item.Attribute(CXML.ATTRIB_IMG).Value;
-      Url = new Uri(item.Attribute(CXML.ATTRIB_HREF).Value);
+      Id = item.Attribute(CXML.ATTRIB_ID)?.Value ?? "";
+      Title = item.Attribute(CXML.ATTRIB_NAME)?.Value ?? "";
+      Image = item.Attribute(CXML.ATTRIB_IMG)?.Value ?? "";
+
+      string href = item.Attribute(CXML.ATTRIB_HREF)?.Value ?? "";
+      Url = (href != "") ? new Uri(href) : null;
 
       Description = item.Element(CXML.NODE_DESCRIPTION).Value;
 
