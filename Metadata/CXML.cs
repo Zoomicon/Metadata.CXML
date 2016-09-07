@@ -117,12 +117,12 @@ namespace Metadata.CXML
     
     //Number//
 
-    public static double CXMLFacetNumberValue(this XElement facet)
+    public static double? CXMLFacetNumberValue(this XElement facet)
     {
-      return (facet != null) ? double.Parse(facet.Element(NODE_NUMBER).Attribute(ATTRIB_VALUE).Value, DEFAULT_NUMBER_STYLE, CultureInfo.InvariantCulture) : 0;
+      return (facet != null) ? double.Parse(facet.Element(NODE_NUMBER).Attribute(ATTRIB_VALUE).Value, DEFAULT_NUMBER_STYLE, CultureInfo.InvariantCulture) : (double?)null;
     }
 
-    public static double CXMLFacetNumberValue(this IEnumerable<XElement> facets, string facetName)
+    public static double? CXMLFacetNumberValue(this IEnumerable<XElement> facets, string facetName)
     {
       return facets.CXMLFacet(facetName).CXMLFacetNumberValue();
     }
@@ -173,7 +173,7 @@ namespace Metadata.CXML
 
     public static XElement MakeStringFacet(string name, string value)
     {
-      if (value == null || string.IsNullOrWhiteSpace(value)) return null; //not saving empty values (note that tools like PAuthor don't support empty facets, so returning null node)
+      if (value == null || string.IsNullOrWhiteSpace(value)) return null; //tools like PAuthor don't support empty facet values, so returning null node
 
       return
         new XElement(NODE_FACET,
@@ -188,7 +188,7 @@ namespace Metadata.CXML
     
     public static XElement MakeStringFacet(string name, string[] values)
     {
-      if (values == null || values.Length == 0) return null; //tools like PAuthor don't support empty facets, so returning null node
+      if (values == null || values.Length == 0) return null; //tools like PAuthor don't support empty facet values, so returning null node
 
       return
         new XElement(NODE_FACET,
@@ -202,13 +202,15 @@ namespace Metadata.CXML
 
     //Number//
 
-    public static XElement MakeNumberFacet(string name, double value, string format = DEFAULT_NUMBER_FORMAT)
+    public static XElement MakeNumberFacet(string name, double? value, string format = DEFAULT_NUMBER_FORMAT)
     {
+      if (!value.HasValue) return null; //tools like PAuthor don't support empty facet values, so returning null node
+
       return
         new XElement(NODE_FACET,
           new XAttribute(ATTRIB_NAME, name),
           new XElement(NODE_NUMBER,
-            new XAttribute(ATTRIB_VALUE, value.ToString(format, CultureInfo.InvariantCulture))
+            new XAttribute(ATTRIB_VALUE, value.Value.ToString(format, CultureInfo.InvariantCulture))
           )
         );
     }
