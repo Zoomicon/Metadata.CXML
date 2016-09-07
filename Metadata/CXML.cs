@@ -62,7 +62,7 @@ namespace Metadata.CXML
     public const string VALUE_FALSE = "False";
 
     public const NumberStyles DEFAULT_NUMBER_STYLE = NumberStyles.Integer | NumberStyles.AllowDecimalPoint;
-    public const string DEFAULT_NUMBER_FORMAT = "F"; //use with CultureInfo.InvariantCulture to have "." for decimal separator
+    public const string DEFAULT_NUMBER_FORMAT = "0.#"; //use with CultureInfo.InvariantCulture to have "." for decimal separator
     public const string DEFAULT_DATETIME_FORMAT = "yyyy-MM-ddThh:mm:ss"; //this format is also used at MSDN Magazine Collection (http://pivot.blob.core.windows.net/msdn-magazine/msdnmagazine.cxml)
 
     #endregion
