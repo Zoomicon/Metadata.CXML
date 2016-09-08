@@ -1,6 +1,6 @@
 ﻿//Project: Metadata.CXML (https://github.com/zoomicon/Metadata.CXML)
 //Filename: CXMLMetadata.cs
-//Version: 20160511
+//Version: 20160908
 
 using System;
 using System.Collections.Generic;
@@ -30,12 +30,12 @@ namespace Metadata.CXML
     {
       return
         new XElement(CXML.NODE_ITEM,
-          new XAttribute(CXML.ATTRIB_ID, Id),
-          new XAttribute(CXML.ATTRIB_NAME, Title),
-          new XAttribute(CXML.ATTRIB_IMG, Image),
+          new XAttribute(CXML.ATTRIB_ID, Id ?? ""),
+          new XAttribute(CXML.ATTRIB_NAME, Title ?? ""),
+          new XAttribute(CXML.ATTRIB_IMG, Image ?? ""),
           new XAttribute(CXML.ATTRIB_HREF, (Url != null) ? Url.ToString() : ""),
 
-          new XElement(CXML.NODE_DESCRIPTION, Description),
+          new XElement(CXML.NODE_DESCRIPTION, Description ?? ""),
 
           new XElement(CXML.NODE_FACETS,
             GetCXMLFacets()
