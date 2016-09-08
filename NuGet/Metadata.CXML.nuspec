@@ -4,7 +4,7 @@
 
   <metadata>
     <id>Metadata.CXML</id>
-    <version>1.1.0</version>
+    <version>1.4.0</version>
     <title>Metadata.CXML</title>
     <authors>birbilis</authors>
     <owners>birbilis</owners>
@@ -14,7 +14,9 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <developmentDependency>true</developmentDependency>
     <description>Library for manipulating Metadata in Collection XML (CXML) format (as defined for PivotViewer control)</description>
-    <releaseNotes />
+    <releaseNotes>
+    - Using 0.# format for Number facet values
+    </releaseNotes>
     <copyright>Copyright 2013-2016</copyright>
     <tags>Metadata CXML PivotViewer</tags>
   </metadata>

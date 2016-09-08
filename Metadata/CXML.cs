@@ -1,9 +1,10 @@
 ﻿//Project: Metadata.CXML (https://github.com/zoomicon/Metadata.CXML)
 //Filename: CXML.cs
-//Version: 20160507
+//Version: 20160907
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -37,6 +38,7 @@ namespace Metadata.CXML
     public static readonly XName NODE_FACET = "Facet";
 
     public static readonly XName NODE_STRING = "String";
+    public static readonly XName NODE_NUMBER = "Number";
     public static readonly XName NODE_DATETIME = "DateTime";
 
     public static readonly XName ATTRIB_ID = "Id";
@@ -53,11 +55,14 @@ namespace Metadata.CXML
     public static readonly XName ATTRIB_VALUE = "Value";
 
     public const string VALUE_STRING = "String";
+    public const string VALUE_NUMBER = "Number";
     public const string VALUE_DATETIME = "DateTime";
 
     public const string VALUE_TRUE = "True";
     public const string VALUE_FALSE = "False";
 
+    public const NumberStyles DEFAULT_NUMBER_STYLE = NumberStyles.Integer | NumberStyles.AllowDecimalPoint;
+    public const string DEFAULT_NUMBER_FORMAT = "0.#"; //use with CultureInfo.InvariantCulture to have "." for decimal separator
     public const string DEFAULT_DATETIME_FORMAT = "yyyy-MM-ddThh:mm:ss"; //this format is also used at MSDN Magazine Collection (http://pivot.blob.core.windows.net/msdn-magazine/msdnmagazine.cxml)
 
     #endregion
@@ -86,6 +91,8 @@ namespace Metadata.CXML
       }
     }
 
+    //String//
+
     public static string CXMLFacetStringValue(this XElement facet)
     {
       return (facet != null)? facet.Element(NODE_STRING).Attribute(ATTRIB_VALUE).Value : "";
@@ -95,6 +102,32 @@ namespace Metadata.CXML
     {
       return facets.CXMLFacet(facetName).CXMLFacetStringValue();
     }
+
+    //Strings//
+
+    public static string[] CXMLFacetStringValues(this XElement facet)
+    {
+      return (facet != null) ? facet.Elements("String").Select(s => s.Attribute("Value").Value).ToArray() : new string[] { };
+    }
+
+    public static string[] CXMLFacetStringValues(this IEnumerable<XElement> facets, string facetName)
+    {
+      return facets.CXMLFacet(facetName).CXMLFacetStringValues();
+    }
+    
+    //Number//
+
+    public static double? CXMLFacetNumberValue(this XElement facet)
+    {
+      return (facet != null) ? double.Parse(facet.Element(NODE_NUMBER).Attribute(ATTRIB_VALUE).Value, DEFAULT_NUMBER_STYLE, CultureInfo.InvariantCulture) : (double?)null;
+    }
+
+    public static double? CXMLFacetNumberValue(this IEnumerable<XElement> facets, string facetName)
+    {
+      return facets.CXMLFacet(facetName).CXMLFacetNumberValue();
+    }
+
+    //DateTime//
 
     public static DateTime CXMLFacetDateTimeValue(this XElement facet)
     {
@@ -106,6 +139,8 @@ namespace Metadata.CXML
       return facets.CXMLFacet(facetName).CXMLFacetDateTimeValue();
     }
 
+    //Bool//
+
     public static bool CXMLFacetBoolValue(this XElement facet)
     {
       string value =  facet.CXMLFacetStringValue();
@@ -116,16 +151,6 @@ namespace Metadata.CXML
     public static bool CXMLFacetBoolValue(this IEnumerable<XElement> facets, string facetName)
     {
       return facets.CXMLFacet(facetName).CXMLFacetBoolValue();
-    }
-
-    public static string[] CXMLFacetStringValues(this XElement facet)
-    {
-      return (facet != null)? facet.Elements("String").Select(s => s.Attribute("Value").Value).ToArray() : new string[]{};
-    }
-
-    public static string[] CXMLFacetStringValues(this IEnumerable<XElement> facets, string facetName)
-    {
-      return facets.CXMLFacet(facetName).CXMLFacetStringValues();
     }
 
     #endregion
@@ -144,9 +169,11 @@ namespace Metadata.CXML
       return facetCategory;
     }
 
+    //String//
+
     public static XElement MakeStringFacet(string name, string value)
     {
-      if (value == null || string.IsNullOrWhiteSpace(value)) return null; //not saving empty values (note that tools like PAuthor don't support empty facets, so returning null node)
+      if (value == null || string.IsNullOrWhiteSpace(value)) return null; //tools like PAuthor don't support empty facet values, so returning null node
 
       return
         new XElement(NODE_FACET,
@@ -157,10 +184,11 @@ namespace Metadata.CXML
         );
     }
 
+    //Strings//
     
     public static XElement MakeStringFacet(string name, string[] values)
     {
-      if (values == null || values.Length == 0) return null; //tools like PAuthor don't support empty facets, so returning null node
+      if (values == null || values.Length == 0) return null; //tools like PAuthor don't support empty facet values, so returning null node
 
       return
         new XElement(NODE_FACET,
@@ -172,6 +200,23 @@ namespace Metadata.CXML
         );
     }
 
+    //Number//
+
+    public static XElement MakeNumberFacet(string name, double? value, string format = DEFAULT_NUMBER_FORMAT)
+    {
+      if (!value.HasValue) return null; //tools like PAuthor don't support empty facet values, so returning null node
+
+      return
+        new XElement(NODE_FACET,
+          new XAttribute(ATTRIB_NAME, name),
+          new XElement(NODE_NUMBER,
+            new XAttribute(ATTRIB_VALUE, value.Value.ToString(format, CultureInfo.InvariantCulture))
+          )
+        );
+    }
+
+    //DateTime//
+
     public static XElement MakeDateTimeFacet(string name, DateTime value, string format = DEFAULT_DATETIME_FORMAT)
     {
       return
@@ -182,6 +227,8 @@ namespace Metadata.CXML
           )
         );
     }
+
+    //Collection//
 
     public static XElement MakeCollection(string collectionTitle, IEnumerable<XElement> cxmlFacetCategories, IEnumerable<XElement> cxmlItems)
     {
